@@ -1,4 +1,4 @@
-# NFT-Minter-GasLess-AA-EIP4337
+# gasless-minter-tutorial
 
 This project is a web application built with React and TypeScript, using Userbase for user authentication.
 
