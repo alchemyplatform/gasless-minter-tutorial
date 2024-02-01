@@ -58,14 +58,6 @@ pnpm dev
 ```
 > **Note:** The application will be available at `http://localhost:3000`.
 
-## Testing
-
-To run the tests, use
-
-```bash
-npm test
-```
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
