@@ -15,16 +15,22 @@ export default function GaslessMinter() {
       nameOfFunction: "mint",
     };
 
-    await fetch("/api/mint-nft-user-op/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    setTimeout(() => {}, 10000); // 10 seconds
-    setIsLoading(false);
-    setHasMinted(true);
+    try {
+      await fetch("/api/mint-nft-user-op/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      setTimeout(() => {}, 10000); // 10 seconds
+      setHasMinted(false);
+    } catch (error) {
+      setHasMinted(true);
+      console.log("Error minting NFT: ", error)
+    } finally {
+      setIsLoading(false);
+    }
   }
   return (
     <div className="flex items-center justify-center mt-12">
