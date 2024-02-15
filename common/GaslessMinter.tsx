@@ -65,10 +65,10 @@ export default function GaslessMinter() {
                 />
               </svg>
               <div className="flex justify-end text-right">
-                <span className="text-white">NFT minted. ✅</span>
+                <span className="text-black">NFT minted. ✅</span>
               </div>
             </div>
-            <button className="btn btn-primary text-white" onClick={handleMint}>
+            <button className="btn btn-primary text-black" onClick={handleMint}>
               <span
                 className={`${
                   isLoading ? "loading loading-spinner" : "hidden"

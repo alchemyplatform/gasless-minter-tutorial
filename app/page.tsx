@@ -69,7 +69,7 @@ export default function Home() {
           <div className="tabs items-center flex justify-center mb-[-25px]">
             <a
               className={`tab tab-lg tab-lifted text-2xl ${
-                walletViewActive ? "tab-active text-white" : ""
+                walletViewActive ? "tab-active text-black" : ""
               }`}
               onClick={() => setWalletViewActive(!walletViewActive)}
             >
@@ -77,7 +77,7 @@ export default function Home() {
             </a>
             <a
               className={`tab tab-lg tab-lifted text-2xl ${
-                walletViewActive ? "" : "tab-active text-white"
+                walletViewActive ? "" : "tab-active text-black"
               }`}
               onClick={() => setWalletViewActive(!walletViewActive)}
             >

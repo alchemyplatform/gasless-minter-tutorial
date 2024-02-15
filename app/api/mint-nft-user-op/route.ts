@@ -12,6 +12,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { encodeFunctionData, parseEther } from "viem";
 import { sepolia } from "viem/chains";
 
+(BigInt.prototype as any).toJSON = function () {
+  return this.toString();
+};
+
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
@@ -20,9 +24,6 @@ export async function POST(request: NextRequest) {
   const userResponse = await getUser(userId);
   const userResponseObject = await userResponse?.json();
   const pk = userResponseObject?.response?.profile?.pk;
-
-  console.log("hello there");
-  console.log(pk);
 
   const signer = await createSigner(pk);
 
