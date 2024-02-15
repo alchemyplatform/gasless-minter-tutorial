@@ -29,11 +29,12 @@ export default function LoginForm() {
         password,
         rememberMe: "local",
       });
+
       const userInfo = {
         username: username,
         isLoggedIn: true,
         userId: response.userId,
-        userScwAddress: response.profile?.scwAddress,
+        scwAddress: response.profile?.scwAddress,
       };
       login(userInfo);
       router.push("/?login=success");
