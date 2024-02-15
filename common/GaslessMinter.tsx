@@ -15,16 +15,22 @@ export default function GaslessMinter() {
       nameOfFunction: "mint",
     };
 
-    await fetch("/api/mint-nft-user-op/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    setTimeout(() => {}, 10000); // 10 seconds
-    setIsLoading(false);
-    setHasMinted(true);
+    try {
+      const res = await fetch("/api/mint-nft-user-op/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if(res.ok) setHasMinted(true);
+      else throw res.statusText;
+    } catch (error) {
+      setHasMinted(false);
+      console.log("Error minting NFT: ", error)
+    } finally {
+      setIsLoading(false);
+    }
   }
   return (
     <div className="flex items-center justify-center mt-12">
@@ -65,10 +71,10 @@ export default function GaslessMinter() {
                 />
               </svg>
               <div className="flex justify-end text-right">
-                <span className="text-white">NFT minted. ✅</span>
+                <span className="text-black">NFT minted. ✅</span>
               </div>
             </div>
-            <button className="btn btn-primary text-white" onClick={handleMint}>
+            <button className="btn btn-primary text-black" onClick={handleMint}>
               <span
                 className={`${
                   isLoading ? "loading loading-spinner" : "hidden"

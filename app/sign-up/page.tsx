@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import userbase from "userbase-js";
 import "../globals.css";
 
+const SIMPLE_ACCOUNT_FACTORY_ADDRESS = process.env.NEXT_PUBLIC_SEPOLIA_SIMPLE_ACCOUNT_FACTORY_ADDRESS as `0x${string}` 
+
 export default function SignupForm() {
   const { user, login } = useAuth();
   const [username, setUsername] = useState("");
@@ -46,7 +48,7 @@ export default function SignupForm() {
       const ownerAddress = responseData.data; // access the signer object
 
       const userScwAddress: string = (await publicClient.readContract({
-        address: "0x9406Cc6185a346906296840746125a0E44976454", // simple factory addr
+        address: SIMPLE_ACCOUNT_FACTORY_ADDRESS, // simple factory addr
         abi: simpleFactoryAbi,
         functionName: "getAddress",
         args: [ownerAddress, 0],
@@ -128,7 +130,7 @@ export default function SignupForm() {
               </div>
               {error && <p className="text-red-500 mb-4">{error}</p>}{" "}
               <div className="flex items-center justify-end">
-                <button className="btn text-white">Sign Up</button>
+                <button className="btn text-black">Sign Up</button>
               </div>
             </form>
           </div>
