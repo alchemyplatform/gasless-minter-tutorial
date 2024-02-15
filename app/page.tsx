@@ -93,7 +93,7 @@ export default function Home() {
             Please log in to continue! 👀
             <button
               onClick={() => router.push("/login")}
-              className="btn mt-6 text-white"
+              className="btn mt-6 text-black"
             >
               Login
             </button>

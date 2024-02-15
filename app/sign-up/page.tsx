@@ -128,7 +128,7 @@ export default function SignupForm() {
               </div>
               {error && <p className="text-red-500 mb-4">{error}</p>}{" "}
               <div className="flex items-center justify-end">
-                <button className="btn text-white">Sign Up</button>
+                <button className="btn text-black">Sign Up</button>
               </div>
             </form>
           </div>
