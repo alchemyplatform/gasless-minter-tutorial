@@ -16,17 +16,17 @@ export default function GaslessMinter() {
     };
 
     try {
-      await fetch("/api/mint-nft-user-op/", {
+      const res = await fetch("/api/mint-nft-user-op/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-      setTimeout(() => {}, 10000); // 10 seconds
-      setHasMinted(false);
+      if(res.ok) setHasMinted(true);
+      else throw res.statusText;
     } catch (error) {
-      setHasMinted(true);
+      setHasMinted(false);
       console.log("Error minting NFT: ", error)
     } finally {
       setIsLoading(false);
